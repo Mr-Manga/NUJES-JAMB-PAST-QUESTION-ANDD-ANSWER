@@ -1,236 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NUJES – Free JAMB Support Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>NUJES – Free JAMB Past Questions & Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7f9;
-      color: #222;
-      line-height: 1.6;
-    }
+<style>
+:root{
+  --gold:#d4af37;
+  --brown:#5a3e1b;
+  --light:#fffaf2;
+}
 
-    header {
-      background: #0a7d3b;
-      color: white;
-      padding: 25px;
-      text-align: center;
-    }
+body{
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:var(--light);
+  color:#333;
+}
 
-    header h1 { margin: 0; }
+header{
+  background:linear-gradient(135deg,var(--brown),var(--gold));
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+}
 
-    .toggle-btn {
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background: white;
-      color: #0a7d3b;
-      font-weight: bold;
-    }
+header h1{
+  margin:0;
+  font-size:28px;
+}
 
-    section {
-      padding: 20px;
-    }
+header p{
+  max-width:600px;
+  margin:10px auto;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+.lang-btn{
+  background:white;
+  color:var(--brown);
+  border:none;
+  padding:8px 15px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
 
-    h2 { color: #0a7d3b; }
+section{
+  padding:30px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
-    .subjects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
+.card{
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  margin-bottom:30px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
 
-    .subject {
-      background: #e9f5ee;
-      padding: 15px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+h2{
+  color:var(--brown);
+  border-left:6px solid var(--gold);
+  padding-left:10px;
+}
 
-    a {
-      color: #0a7d3b;
-      text-decoration: none;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
 
-    a:hover { text-decoration: underline; }
+.subject{
+  background:var(--light);
+  border:2px solid var(--gold);
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  transition:0.3s;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+.subject:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-    button.submit {
-      background: #0a7d3b;
-      color: white;
-      border: none;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-    }
+.subject i{
+  font-size:28px;
+  color:var(--brown);
+}
 
-    footer {
-      background: #0a7d3b;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-  </style>
+.subject a{
+  display:block;
+  margin-top:10px;
+  color:var(--brown);
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.subject a:hover{
+  color:var(--gold);
+}
+
+ul{
+  line-height:1.8;
+}
+
+form input, form textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.submit{
+  background:var(--brown);
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.submit:hover{
+  background:var(--gold);
+  color:var(--brown);
+}
+
+footer{
+  background:var(--brown);
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1 id="title">NUJES Free JAMB Support Portal</h1>
-  <p id="subtitle">Helping Jama’are Emirate Students Prepare for JAMB – 100% Free</p>
-  <button class="toggle-btn" onclick="toggleLang()">Hausa / English</button>
+<h1 id="title">NUJES Free JAMB Study Portal</h1>
+<p id="subtitle">
+A free academic support platform by the National Union of Jama’are Emirate Students
+to help students succeed in JAMB.
+</p>
+<button class="lang-btn" onclick="toggleLang()">Hausa / English</button>
 </header>
 
 <section class="card">
-  <h2 id="aboutTitle">About This Platform</h2>
-  <p id="aboutText">
-    This platform is created by the National Union of Jama’are Emirate Students (NUJES)
-    to support students and parents with free JAMB past questions, free books,
-    guidance, and trusted educational resources.
-  </p>
+<h2 id="aboutTitle">About This Platform</h2>
+<p id="aboutText">
+This platform connects students to FREE and trusted JAMB past questions, CBT practice,
+and study materials. Students can read online or download PDFs at no cost.
+</p>
 </section>
 
 <section class="card">
-  <h2>📘 JAMB Subjects</h2>
-
-  <h3>🧪 Science</h3>
-  <div class="subjects">
-    <div class="subject">Mathematics</div>
-    <div class="subject">English</div>
-    <div class="subject">Physics</div>
-    <div class="subject">Chemistry</div>
-    <div class="subject">Biology</div>
+<h2>🧪 Science Subjects</h2>
+<div class="grid">
+  <div class="subject">
+    <i class="fa-solid fa-calculator"></i>
+    <a href="https://myschool.ng/classroom/mathematics" target="_blank">Mathematics</a>
   </div>
-
-  <h3>🌍 Social Science</h3>
-  <div class="subjects">
-    <div class="subject">Economics</div>
-    <div class="subject">Government</div>
-    <div class="subject">Geography</div>
-    <div class="subject">CRS / IRS</div>
+  <div class="subject">
+    <i class="fa-solid fa-book"></i>
+    <a href="https://myschool.ng/classroom/english-language" target="_blank">English</a>
   </div>
-
-  <h3>🎨 Arts</h3>
-  <div class="subjects">
-    <div class="subject">Literature</div>
-    <div class="subject">Hausa</div>
-    <div class="subject">Arabic</div>
-    <div class="subject">History</div>
-    <div class="subject">Fine Arts</div>
+  <div class="subject">
+    <i class="fa-solid fa-atom"></i>
+    <a href="https://myschool.ng/classroom/physics" target="_blank">Physics</a>
   </div>
+  <div class="subject">
+    <i class="fa-solid fa-flask"></i>
+    <a href="https://myschool.ng/classroom/chemistry" target="_blank">Chemistry</a>
+  </div>
+  <div class="subject">
+    <i class="fa-solid fa-dna"></i>
+    <a href="https://myschool.ng/classroom/biology" target="_blank">Biology</a>
+  </div>
+</div>
 </section>
 
 <section class="card">
-  <h2>📥 Free JAMB Past Questions & Books</h2>
-
-  <ul>
-    <li>
-      📘 <strong>All Subjects – Past Questions</strong><br>
-      <a href="https://myschool.ng/classroom/jamb" target="_blank">
-        Myschool (Free JAMB Past Questions)
-      </a>
-    </li><br>
-
-    <li>
-      🧪 <strong>CBT Practice Questions</strong><br>
-      <a href="https://pass.ng/jamb" target="_blank">
-        Pass.ng Free CBT Practice
-      </a>
-    </li><br>
-
-    <li>
-      📄 <strong>Past Question PDFs</strong><br>
-      <a href="https://exampastquestions.com.ng/jamb-past-questions/" target="_blank">
-        Download Free PDFs
-      </a>
-    </li><br>
-
-    <li>
-      📚 <strong>Free Study Books</strong><br>
-      <a href="https://openlibrary.org" target="_blank">
-        Open Library – Free Textbooks
-      </a>
-    </li>
-  </ul>
-
-  <p style="font-size:14px;">
-    ⚠️ NUJES does not sell or own these materials. All links are free educational resources.
-  </p>
+<h2>🌍 Social Science Subjects</h2>
+<div class="grid">
+  <div class="subject"><a href="https://myschool.ng/classroom/economics" target="_blank">Economics</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/government" target="_blank">Government</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/geography" target="_blank">Geography</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/crs" target="_blank">CRS / IRS</a></div>
+</div>
 </section>
 
 <section class="card">
-  <h2>🎯 JAMB Guidance</h2>
-  <ul>
-    <li>How to prepare for JAMB effectively</li>
-    <li>Correct subject combinations</li>
-    <li>Common mistakes students make</li>
-    <li>How to manage time in CBT exams</li>
-    <li>Study tips for scoring 250+</li>
-  </ul>
+<h2>🎨 Arts Subjects</h2>
+<div class="grid">
+  <div class="subject"><a href="https://myschool.ng/classroom/literature-in-english" target="_blank">Literature</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/hausa" target="_blank">Hausa</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/arabic" target="_blank">Arabic</a></div>
+  <div class="subject"><a href="https://myschool.ng/classroom/history" target="_blank">History</a></div>
+</div>
 </section>
 
 <section class="card">
-  <h2>🗣 Feedback & Support</h2>
-  <form action="https://formspree.io/f/yourFormID" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message"></textarea>
-    <button class="submit">Send Message</button>
-  </form>
+<h2>🎯 JAMB CBT Practice</h2>
+<ul>
+<li><a href="https://pass.ng/jamb" target="_blank">Practice CBT Questions (Pass.ng)</a></li>
+<li><a href="https://myschool.ng/classroom/jamb" target="_blank">Online JAMB Practice (Myschool)</a></li>
+</ul>
+</section>
+
+<section class="card">
+<h2>🗣 Feedback & Support</h2>
+<form action="https://formspree.io/f/yourFormID" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message"></textarea>
+<button class="submit">Send Message</button>
+</form>
 </section>
 
 <footer>
-  © 2026 NUJES | Free Educational Support | Not Officially Affiliated with JAMB
+© 2026 NUJES | 100% Free Educational Support | Not Affiliated with JAMB
 </footer>
 
 <script>
-  let hausa = false;
-
-  function toggleLang() {
-    hausa = !hausa;
-
-    document.getElementById("title").innerText =
-      hausa ? "Shafin Tallafin JAMB na NUJES (Kyauta)" : "NUJES Free JAMB Support Portal";
-
-    document.getElementById("subtitle").innerText =
-      hausa ? "Tallafa wa Daliban Masarautar Jama’are Kyauta" :
-              "Helping Jama’are Emirate Students Prepare for JAMB – 100% Free";
-
-    document.getElementById("aboutTitle").innerText =
-      hausa ? "Game da Wannan Shafi" : "About This Platform";
-
-    document.getElementById("aboutText").innerText =
-      hausa
-        ? "NUJES ta kirkiro wannan shafi domin taimaka wa dalibai da iyaye da past questions, littattafai da shawarwari kyauta."
-        : "This platform is created by the National Union of Jama’are Emirate Students (NUJES) to support students and parents with free resources.";
-  }
+let h=false;
+function toggleLang(){
+h=!h;
+document.getElementById("title").innerText=h?"Shafin Karatun JAMB na NUJES":"NUJES Free JAMB Study Portal";
+document.getElementById("subtitle").innerText=h?"Tallafin karatu kyauta ga daliban Masarautar Jama’are":"A free academic support platform by NUJES";
+document.getElementById("aboutTitle").innerText=h?"Game da Wannan Shafi":"About This Platform";
+document.getElementById("aboutText").innerText=h?
+"Wannan shafi yana ba dalibai damar karanta da sauke past questions da CBT kyauta."
+:
+"This platform connects students to FREE and trusted JAMB past questions and CBT practice.";
+}
 </script>
 
 </body>
