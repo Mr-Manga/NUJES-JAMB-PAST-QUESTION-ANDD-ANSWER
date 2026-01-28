@@ -9,43 +9,44 @@
 
 <style>
 :root{
- --brown:#4b2e1e;
- --gold:#c9a227;
- --cream:#fdf8f2;
+ --navy:#0b1c2d;
+ --gold:#d4af37;
+ --light:#f5f7fa;
+ --white:#ffffff;
 }
 
 body{
  margin:0;
  font-family:'Poppins',sans-serif;
- background:var(--cream);
+ background:var(--light);
  color:#222;
 }
 
 header{
- background:linear-gradient(135deg,var(--brown),var(--gold));
+ background:linear-gradient(135deg,var(--navy),#142f4a);
  color:white;
- padding:40px 20px;
+ padding:45px 20px;
  text-align:center;
 }
 
 .logo{
- width:90px;
- height:90px;
+ width:95px;
+ height:95px;
  border-radius:50%;
- background:white;
- color:var(--brown);
+ background:var(--white);
+ color:var(--navy);
  display:flex;
  flex-direction:column;
  align-items:center;
  justify-content:center;
  font-weight:700;
- margin:0 auto 10px;
- box-shadow:0 8px 20px rgba(0,0,0,0.2);
+ margin:0 auto 15px;
+ box-shadow:0 10px 25px rgba(0,0,0,0.25);
+ border:4px solid var(--gold);
 }
 
 .logo span{
- font-size:28px;
- line-height:1;
+ font-size:30px;
 }
 
 .logo small{
@@ -61,31 +62,31 @@ section{
 
 .card{
  background:white;
- border-radius:16px;
- padding:25px;
- margin-bottom:30px;
- box-shadow:0 15px 40px rgba(0,0,0,0.08);
+ border-radius:18px;
+ padding:28px;
+ margin-bottom:32px;
+ box-shadow:0 18px 45px rgba(0,0,0,0.1);
 }
 
 h2{
- color:var(--brown);
+ color:var(--navy);
  border-left:6px solid var(--gold);
  padding-left:12px;
 }
 
 button{
- background:var(--brown);
+ background:var(--navy);
  color:white;
  border:none;
- padding:12px 20px;
- border-radius:10px;
+ padding:12px 22px;
+ border-radius:12px;
  cursor:pointer;
  font-size:15px;
 }
 
 button:hover{
  background:var(--gold);
- color:var(--brown);
+ color:var(--navy);
 }
 
 input, textarea{
@@ -99,11 +100,11 @@ input, textarea{
 .grid{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
- gap:20px;
+ gap:22px;
 }
 
 .subject{
- background:var(--cream);
+ background:var(--light);
  padding:20px;
  border-radius:14px;
  text-align:center;
@@ -112,15 +113,15 @@ input, textarea{
 
 .subject a{
  text-decoration:none;
- color:var(--brown);
+ color:var(--navy);
  font-weight:600;
 }
 
 footer{
- background:var(--brown);
+ background:var(--navy);
  color:white;
  text-align:center;
- padding:20px;
+ padding:25px;
  font-size:14px;
 }
 </style>
@@ -134,30 +135,31 @@ footer{
   <small>NUJES</small>
 </div>
 <h1>NUJES JAMB CBT & Study Portal</h1>
-<p>Free CBT Practice • Free Past Questions • Free Books</p>
+<p>Free CBT • Free Past Questions • Free Books for All NUJES Students</p>
 </header>
 
 <section class="card">
-<h2>About This Platform</h2>
+<h2>About NUJES</h2>
 <p>
-This platform is created by the <strong>National Union of Jama’are Emirate Students (NUJES)</strong>
-to support students and parents with <strong>FREE</strong> JAMB preparation materials,
-online CBT practice, and academic guidance.
+This platform is an educational initiative of the
+<strong>National Union of Jama’are Emirate Students (NUJES)</strong>,
+created to assist students preparing for JAMB through
+<strong>free learning resources, CBT practice, and academic guidance</strong>.
 </p>
+
+<p><strong>President:</strong> Ahmed Ibrahim Maidala</p>
+<p><strong>Producer & Creator:</strong> Eng. Ibrahim Usman Nananu (Mr-Manga)</p>
 </section>
 
-<!-- LOGIN -->
 <section class="card" id="loginBox">
 <h2>🔐 Student Login</h2>
-<p>Enter your name to start CBT practice.</p>
+<p>Enter your name to access the study dashboard.</p>
 <input type="text" id="studentName" placeholder="Enter your full name">
 <button onclick="login()">Login</button>
 </section>
 
-<!-- DASHBOARD -->
 <section class="card" id="dashboard" style="display:none;">
 <h2 id="welcome"></h2>
-<p>Select a subject to study or practice CBT.</p>
 
 <h3>🧪 Science Subjects</h3>
 <div class="grid">
@@ -186,7 +188,6 @@ online CBT practice, and academic guidance.
 <button onclick="startCBT()">Start Online CBT (Math)</button>
 </section>
 
-<!-- CBT -->
 <section class="card" id="cbtBox" style="display:none;">
 <h2>🧪 Mathematics CBT Practice</h2>
 <p id="question"></p>
@@ -196,90 +197,5 @@ online CBT practice, and academic guidance.
 <section class="card">
 <h2>📚 Free Books & Past Questions</h2>
 <ul>
-<li><a href="https://myschool.ng/classroom/jamb" target="_blank">Free JAMB Past Questions (Myschool)</a></li>
-<li><a href="https://pass.ng/jamb" target="_blank">CBT Practice (Pass.ng)</a></li>
-<li><a href="https://openlibrary.org" target="_blank">Free Textbooks (Open Library)</a></li>
-</ul>
-</section>
-
-<section class="card">
-<h2>🎯 JAMB Guidance</h2>
-<ul>
-<li>Correct subject combination</li>
-<li>How to read effectively</li>
-<li>CBT time management</li>
-<li>Common mistakes to avoid</li>
-<li>How to score 250+</li>
-</ul>
-</section>
-
-<section class="card">
-<h2>🗣 Feedback & Support</h2>
-<form action="https://formspree.io/f/yourFormID" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" placeholder="Your Message"></textarea>
-<button>Send Message</button>
-</form>
-</section>
-
-<footer>
-© 2026 NUJES | Free Educational Platform | Not Officially Affiliated with JAMB
-</footer>
-
-<script>
-let user=localStorage.getItem("nujesUser");
-if(user){
- document.getElementById("loginBox").style.display="none";
- document.getElementById("dashboard").style.display="block";
- document.getElementById("welcome").innerText="Welcome, "+user;
-}
-
-function login(){
- let name=document.getElementById("studentName").value;
- if(name){
-  localStorage.setItem("nujesUser",name);
-  location.reload();
- }
-}
-
-const questions=[
- {q:"2 + 5 = ?", o:["5","6","7","8"], a:2},
- {q:"10 ÷ 2 = ?", o:["2","4","5","6"], a:2},
- {q:"5 × 4 = ?", o:["20","15","10","25"], a:0}
-];
-
-let index=0, score=0;
-
-function startCBT(){
- document.getElementById("dashboard").style.display="none";
- document.getElementById("cbtBox").style.display="block";
- showQuestion();
-}
-
-function showQuestion(){
- let q=questions[index];
- document.getElementById("question").innerText=q.q;
- let ops="";
- q.o.forEach((opt,i)=>{
-  ops+=`<button onclick="answer(${i})">${opt}</button><br><br>`;
- });
- document.getElementById("options").innerHTML=ops;
-}
-
-function answer(i){
- if(i===questions[index].a) score++;
- index++;
- if(index<questions.length){
-  showQuestion();
- }else{
-  document.getElementById("cbtBox").innerHTML=
-  `<h2>CBT Completed</h2>
-   <p>Your Score: ${score}/${questions.length}</p>
-   <button onclick="location.reload()">Go Home</button>`;
- }
-}
-</script>
-
-</body>
-</html>
+<li><a href="https://myschool.ng/classroom/jamb" target="_blank">JAMB Past Questions</a></li>
+<li><a href="ht
