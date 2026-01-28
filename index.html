@@ -45,14 +45,8 @@ header{
  border:4px solid var(--gold);
 }
 
-.logo span{
- font-size:30px;
-}
-
-.logo small{
- font-size:12px;
- font-weight:600;
-}
+.logo span{font-size:30px;}
+.logo small{font-size:12px;}
 
 section{
  max-width:1100px;
@@ -89,7 +83,7 @@ button:hover{
  color:var(--navy);
 }
 
-input, textarea{
+input{
  width:100%;
  padding:12px;
  border-radius:10px;
@@ -117,11 +111,19 @@ input, textarea{
  font-weight:600;
 }
 
+.news{
+ background:#fff8e1;
+ border-left:6px solid var(--gold);
+ padding:15px;
+ border-radius:12px;
+ margin-bottom:15px;
+}
+
 footer{
  background:var(--navy);
  color:white;
  text-align:center;
- padding:25px;
+ padding:30px 15px;
  font-size:14px;
 }
 </style>
@@ -135,31 +137,29 @@ footer{
   <small>NUJES</small>
 </div>
 <h1>NUJES JAMB CBT & Study Portal</h1>
-<p>Free CBT • Free Past Questions • Free Books for All NUJES Students</p>
+<p>Free CBT • Free Past Questions • Free Books</p>
 </header>
 
 <section class="card">
 <h2>About NUJES</h2>
 <p>
-This platform is an educational initiative of the
+This platform is an official educational support initiative of the
 <strong>National Union of Jama’are Emirate Students (NUJES)</strong>,
-created to assist students preparing for JAMB through
-<strong>free learning resources, CBT practice, and academic guidance</strong>.
+designed to help students succeed in JAMB using
+<strong>free resources, CBT practice, and guided learning</strong>.
 </p>
-
-<p><strong>President:</strong> Ahmed Ibrahim Maidala</p>
-<p><strong>Producer & Creator:</strong> Eng. Ibrahim Usman Nananu (Mr-Manga)</p>
 </section>
 
 <section class="card" id="loginBox">
 <h2>🔐 Student Login</h2>
-<p>Enter your name to access the study dashboard.</p>
+<p>Enter your name to continue</p>
 <input type="text" id="studentName" placeholder="Enter your full name">
+<br><br>
 <button onclick="login()">Login</button>
 </section>
 
 <section class="card" id="dashboard" style="display:none;">
-<h2 id="welcome"></h2>
+<h2 id="welcomeText"></h2>
 
 <h3>🧪 Science Subjects</h3>
 <div class="grid">
@@ -185,67 +185,83 @@ created to assist students preparing for JAMB through
 </div>
 
 <br>
-<button onclick="startCBT()">Start Online CBT (Math)</button>
+<button onclick="startCBT()">Start CBT (Math)</button>
+<button onclick="logout()">Logout</button>
 </section>
 
 <section class="card" id="cbtBox" style="display:none;">
-<h2>🧪 Mathematics CBT Practice</h2>
+<h2>🧪 Mathematics CBT</h2>
 <p id="question"></p>
 <div id="options"></div>
 </section>
 
 <section class="card">
-<h2>📚 Free Books & Past Questions</h2>
-<ul>
-<li><a href="https://myschool.ng/classroom/jamb" target="_blank">JAMB Past Questions</a></li>
-<li><a href="https://pass.ng/jamb" target="_blank">Online CBT Practice</a></li>
-<li><a href="https://openlibrary.org" target="_blank">Free Textbooks (PDF)</a></li>
-</ul>
+<h2>📰 NUJES News & Updates</h2>
+<div class="news">📢 NUJES encourages all students to begin early JAMB preparation.</div>
+<div class="news">📘 Free CBT and past questions are now available online.</div>
+<div class="news">🎓 Education is the pride of Jama’are Emirate.</div>
 </section>
 
 <footer>
-© 2026 NUJES | President: Ahmed Ibrahim Maidala <br>
-Produced & Developed by Eng. Ibrahim Usman Nananu (Mr-Manga)
+<strong>President:</strong> Ahmed Ibrahim Maidala <br><br>
+<strong>Produced & Developed by:</strong><br>
+Eng. Ibrahim Usman Nananu (Mr-Manga) <br>
+NUJES Digital Education Project
 </footer>
 
 <script>
-let user=localStorage.getItem("nujesUser");
-if(user){
- document.getElementById("loginBox").style.display="none";
- document.getElementById("dashboard").style.display="block";
- document.getElementById("welcome").innerText="Welcome, "+user;
-}
+const loginBox=document.getElementById("loginBox");
+const dashboard=document.getElementById("dashboard");
+const welcomeText=document.getElementById("welcomeText");
 
-function login(){
- let name=document.getElementById("studentName").value;
- if(name){
-  localStorage.setItem("nujesUser",name);
-  location.reload();
+function checkLogin(){
+ const user=localStorage.getItem("nujesUser");
+ if(user){
+  loginBox.style.display="none";
+  dashboard.style.display="block";
+  welcomeText.innerText="Welcome, "+user;
  }
 }
 
+function login(){
+ const name=document.getElementById("studentName").value.trim();
+ if(name===""){
+  alert("Please enter your name");
+  return;
+ }
+ localStorage.setItem("nujesUser",name);
+ checkLogin();
+}
+
+function logout(){
+ localStorage.removeItem("nujesUser");
+ location.reload();
+}
+
+checkLogin();
+
+/* CBT */
 const questions=[
  {q:"2 + 5 = ?", o:["5","6","7","8"], a:2},
  {q:"10 ÷ 2 = ?", o:["2","4","5","6"], a:2},
  {q:"5 × 4 = ?", o:["20","15","10","25"], a:0}
 ];
-
 let index=0, score=0;
 
 function startCBT(){
- document.getElementById("dashboard").style.display="none";
+ dashboard.style.display="none";
  document.getElementById("cbtBox").style.display="block";
  showQuestion();
 }
 
 function showQuestion(){
- let q=questions[index];
+ const q=questions[index];
  document.getElementById("question").innerText=q.q;
- let ops="";
+ let html="";
  q.o.forEach((opt,i)=>{
-  ops+=`<button onclick="answer(${i})">${opt}</button><br><br>`;
+  html+=`<button onclick="answer(${i})">${opt}</button><br><br>`;
  });
- document.getElementById("options").innerHTML=ops;
+ document.getElementById("options").innerHTML=html;
 }
 
 function answer(i){
