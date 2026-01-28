@@ -29,17 +29,28 @@ header{
 }
 
 .logo{
- width:70px;
- height:70px;
+ width:90px;
+ height:90px;
  border-radius:50%;
  background:white;
  color:var(--brown);
  display:flex;
+ flex-direction:column;
  align-items:center;
  justify-content:center;
- font-size:26px;
- font-weight:bold;
+ font-weight:700;
  margin:0 auto 10px;
+ box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.logo span{
+ font-size:28px;
+ line-height:1;
+}
+
+.logo small{
+ font-size:12px;
+ font-weight:600;
 }
 
 section{
@@ -77,7 +88,7 @@ button:hover{
  color:var(--brown);
 }
 
-input{
+input, textarea{
  width:100%;
  padding:12px;
  border-radius:10px;
@@ -110,6 +121,7 @@ footer{
  color:white;
  text-align:center;
  padding:20px;
+ font-size:14px;
 }
 </style>
 </head>
@@ -117,15 +129,27 @@ footer{
 <body>
 
 <header>
-<div class="logo">NUJES</div>
+<div class="logo">
+  <span>📘</span>
+  <small>NUJES</small>
+</div>
 <h1>NUJES JAMB CBT & Study Portal</h1>
 <p>Free CBT Practice • Free Past Questions • Free Books</p>
 </header>
 
+<section class="card">
+<h2>About This Platform</h2>
+<p>
+This platform is created by the <strong>National Union of Jama’are Emirate Students (NUJES)</strong>
+to support students and parents with <strong>FREE</strong> JAMB preparation materials,
+online CBT practice, and academic guidance.
+</p>
+</section>
+
 <!-- LOGIN -->
 <section class="card" id="loginBox">
 <h2>🔐 Student Login</h2>
-<p>Enter your name to start practicing CBT</p>
+<p>Enter your name to start CBT practice.</p>
 <input type="text" id="studentName" placeholder="Enter your full name">
 <button onclick="login()">Login</button>
 </section>
@@ -135,11 +159,27 @@ footer{
 <h2 id="welcome"></h2>
 <p>Select a subject to study or practice CBT.</p>
 
+<h3>🧪 Science Subjects</h3>
 <div class="grid">
-<div class="subject"><a href="https://myschool.ng/classroom/mathematics" target="_blank">Mathematics (Past Questions)</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/mathematics" target="_blank">Mathematics</a></div>
 <div class="subject"><a href="https://myschool.ng/classroom/english-language" target="_blank">English</a></div>
 <div class="subject"><a href="https://myschool.ng/classroom/physics" target="_blank">Physics</a></div>
 <div class="subject"><a href="https://myschool.ng/classroom/chemistry" target="_blank">Chemistry</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/biology" target="_blank">Biology</a></div>
+</div>
+
+<h3>🌍 Social Science</h3>
+<div class="grid">
+<div class="subject"><a href="https://myschool.ng/classroom/economics" target="_blank">Economics</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/government" target="_blank">Government</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/geography" target="_blank">Geography</a></div>
+</div>
+
+<h3>🎨 Arts</h3>
+<div class="grid">
+<div class="subject"><a href="https://myschool.ng/classroom/literature-in-english" target="_blank">Literature</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/hausa" target="_blank">Hausa</a></div>
+<div class="subject"><a href="https://myschool.ng/classroom/arabic" target="_blank">Arabic</a></div>
 </div>
 
 <br>
@@ -150,15 +190,41 @@ footer{
 <section class="card" id="cbtBox" style="display:none;">
 <h2>🧪 Mathematics CBT Practice</h2>
 <p id="question"></p>
-
 <div id="options"></div>
-<br>
-<button onclick="nextQuestion()">Next</button>
-<p id="timer"></p>
+</section>
+
+<section class="card">
+<h2>📚 Free Books & Past Questions</h2>
+<ul>
+<li><a href="https://myschool.ng/classroom/jamb" target="_blank">Free JAMB Past Questions (Myschool)</a></li>
+<li><a href="https://pass.ng/jamb" target="_blank">CBT Practice (Pass.ng)</a></li>
+<li><a href="https://openlibrary.org" target="_blank">Free Textbooks (Open Library)</a></li>
+</ul>
+</section>
+
+<section class="card">
+<h2>🎯 JAMB Guidance</h2>
+<ul>
+<li>Correct subject combination</li>
+<li>How to read effectively</li>
+<li>CBT time management</li>
+<li>Common mistakes to avoid</li>
+<li>How to score 250+</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>🗣 Feedback & Support</h2>
+<form action="https://formspree.io/f/yourFormID" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
 </section>
 
 <footer>
-© 2026 NUJES | Free Educational Platform | CBT is for practice only
+© 2026 NUJES | Free Educational Platform | Not Officially Affiliated with JAMB
 </footer>
 
 <script>
@@ -203,10 +269,6 @@ function showQuestion(){
 
 function answer(i){
  if(i===questions[index].a) score++;
- nextQuestion();
-}
-
-function nextQuestion(){
  index++;
  if(index<questions.length){
   showQuestion();
