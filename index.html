@@ -1,315 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>NUJES JAMB CBT & Study Portal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUJES | National Union of Jama'are Emirate Students</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
- --navy:#0b1c2d;
- --gold:#d4af37;
- --light:#f5f7fa;
- --white:#ffffff;
-}
-body{
- margin:0;
- font-family:'Poppins',sans-serif;
- background:var(--light);
- color:#222;
-}
-header{
- background:linear-gradient(135deg,var(--navy),#142f4a);
- color:white;
- padding:60px 20px;
- text-align:center;
-}
-.logo{
- width:110px;
- height:110px;
- border-radius:50%;
- background:var(--white);
- color:var(--navy);
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- font-weight:700;
- margin:0 auto 20px;
- border:5px solid var(--gold);
- box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-.logo span{font-size:34px;}
-.logo small{font-size:13px;}
-section{
- max-width:1150px;
- margin:auto;
- padding:35px 20px;
-}
-.card{
- background:white;
- border-radius:20px;
- padding:30px;
- margin-bottom:35px;
- box-shadow:0 18px 45px rgba(0,0,0,0.1);
-}
-h2{
- color:var(--navy);
- border-left:6px solid var(--gold);
- padding-left:12px;
-}
-.subject{
- background:var(--light);
- border:2px solid var(--gold);
- border-radius:16px;
- padding:18px;
-}
-.subject h4{margin:0 0 8px 0;}
-.subject a{
- display:block;
- text-decoration:none;
- color:var(--navy);
- font-size:14px;
- margin:5px 0;
-}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:22px;
-}
-button{
- background:var(--navy);
- color:white;
- border:none;
- padding:12px 22px;
- border-radius:12px;
- cursor:pointer;
- margin-top:10px;
-}
-button:hover{
- background:var(--gold);
- color:var(--navy);
-}
-input{
- width:100%;
- padding:12px;
- border-radius:10px;
- border:1px solid #ccc;
- margin-top:10px;
-}
-footer{
- background:var(--navy);
- color:white;
- text-align:center;
- padding:35px 15px;
- font-size:14px;
-}
-</style>
+  <style>
+    :root{
+      --green:#0f6b3f;
+      --gold:#c9a227;
+      --dark:#0b3d2e;
+      --light:#f5fff9;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+
+    body{
+      background:linear-gradient(135deg,var(--green),var(--gold));
+      color:#fff;
+    }
+
+    header{
+      padding:30px 20px;
+      text-align:center;
+      background:rgba(0,0,0,0.25);
+      backdrop-filter:blur(6px);
+    }
+
+    header h1{
+      font-size:2.4rem;
+      color:#fff;
+    }
+
+    header p{opacity:.9;margin-top:8px}
+
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      background:#0b3d2e;
+      padding:15px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:500;
+      padding:6px 12px;
+      border-radius:6px;
+    }
+
+    nav a:hover{background:var(--gold);color:#000}
+
+    section{
+      padding:50px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.95);
+      color:#000;
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:30px;
+      box-shadow:0 20px 40px rgba(0,0,0,.25);
+    }
+
+    .card h2{color:var(--green);margin-bottom:15px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .subject{
+      background:#f0fff7;
+      border-left:6px solid var(--gold);
+      padding:15px;
+      border-radius:12px;
+    }
+
+    .subject h4{margin-bottom:8px;color:var(--dark)}
+
+    .subject a{
+      display:block;
+      margin-top:6px;
+      color:var(--green);
+      text-decoration:none;
+      font-size:.9rem;
+    }
+
+    .subject a:hover{text-decoration:underline}
+
+    .login-box{
+      max-width:400px;
+      margin:auto;
+    }
+
+    .login-box input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+
+    .login-box button{
+      width:100%;
+      padding:12px;
+      background:linear-gradient(135deg,var(--green),var(--gold));
+      border:none;
+      border-radius:8px;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+    }
+
+    footer{
+      background:#062a1f;
+      text-align:center;
+      padding:30px 20px;
+      margin-top:60px;
+      font-size:.9rem;
+    }
+
+    footer span{color:var(--gold)}
+  </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">
- <span>📚🏛️</span>
- <small>NUJES</small>
-</div>
-<h1>National Union of Jama’are Emirate Students</h1>
-<p>Official JAMB CBT • Free Books • Past Questions Portal</p>
+<header class="header">
+  <div class="header-inner">
+    <img src="assets/nujes-logo.png" alt="NUJES Logo" class="logo" />
+    <div class="header-text">
+      <h1>National Union of Jama'are Emirate Students (NUJES)</h1>
+      <p>JAMB Preparation • Guidance • Free Learning Resources</p>
+    </div>
+  </div>
 </header>
 
-<!-- FIRST VIEW -->
-<section class="card">
-<h2>About NUJES</h2>
+<div style="text-align:right;padding:10px 20px;background:#062a1f">
+  <button onclick="setLang('en')" style="margin-right:5px">English</button>
+  <button onclick="setLang('ha')">Hausa</button>
+</div>
 
-<p><strong>Ahmad Ibrahim Maidala (NUJES President)</strong><br>
-National Union of Jama'are Emirate Students (NUJES).</p>
+<nav>
+  <a href="#about">About NUJES</a>
+  <a href="#subjects">Subjects</a>
+  <a href="#cbt">Online CBT</a>
+  <a href="#login">Student Login</a>
+</nav>
 
-<p>
-Ahmad Ibrahim Maidala is a committed student leader and an advocate for education
-in the Jama’are Emirate. He has worked closely with secondary-school students,
-teachers, and parents to promote academic excellence, career awareness, and
-good study habits.
-</p>
-
-<p>
-As the President of NUJES, he has led many programmes that support students
-preparing for JAMB, WAEC, and other examinations. His goal is to help young
-people choose the right career, gain admission, and build a successful future.
-</p>
-
-<p>
-Ahmad believes that every student no matter their background can achieve great
-things with hard work, guidance, and prayer.
-</p>
-
-<p><em>
-This platform is one of his many efforts to uplift and support the students of
-the Jama’are Emirate through digital learning, guidance, and free academic resources.
-</em></p>
+<section id="about">
+  <div class="card">
+    <h2>Game da NUJES</h2>
+    <p><strong>Ahmad Ibrahim Maidala</strong> <em>(Shugaban NUJES)</em> shugaba ne mai jajircewa kuma mai kishin ilimi a Masarautar Jama’are. Ya yi aiki tare da daliban sakandare, malamai, da iyaye domin inganta karatu, wayar da kai kan sana’o’i, da kyawawan dabi’un karatu.</p>
+    <br>
+    <p>A karkashin jagorancinsa, NUJES ta shirya shirye‑shirye da dama domin taimaka wa dalibai masu shirin jarabawar JAMB, WAEC, da sauran jarabawa. Burinsa shi ne ya taimaka wa matasa su zabi sana’ar da ta dace, su samu gurbin karatu, kuma su gina makoma mai kyau.</p>
+    <br>
+    <p><strong>Mai Shirya & Mai Kirkira:</strong> Engr. Ibrahim Usman Nananu (Mr‑Manga)</p>
+  </div>
 </section>
 
-<section class="card">
-<h2>Understanding JAMB</h2>
-<p>
-JAMB is more than just an exam; it is a door to higher education.
-Only students who prepare with the right strategy, materials, and guidance
-walk through this door confidently.
-</p>
+<section id="subjects">
+  <div class="card">
+    <h2 id="subjects-en">JAMB Subjects & Free Study Resources (MySchool)</h2>
+<h2 id="subjects-ha" style="display:none">Darussan JAMB da Kayan Karatu Kyauta (MySchool)</h2>
+    <p>This platform provides <strong>FREE access</strong> to all major JAMB subjects. Students can read online, practice questions, and download available PDFs.</p>
+    <br>
+    <div class="grid">
 
-<p>
-Passing JAMB is not about reading from morning till night.
-It is about understanding the exam, using the right materials,
-and practicing past questions consistently.
-</p>
+      <!-- Core Subjects -->
+      <div class="subject"><h4>English Language</h4>
+        <a href="https://myschool.ng/jamb/english-language" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/english-language" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Mathematics</h4>
+        <a href="https://myschool.ng/jamb/mathematics" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/mathematics" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <!-- Science Subjects -->
+      <div class="subject"><h4>Biology</h4>
+        <a href="https://myschool.ng/jamb/biology" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/biology" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Chemistry</h4>
+        <a href="https://myschool.ng/jamb/chemistry" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/chemistry" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Physics</h4>
+        <a href="https://myschool.ng/jamb/physics" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/physics" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Agricultural Science</h4>
+        <a href="https://myschool.ng/jamb/agricultural-science" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/agricultural-science" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <!-- Art & Social Science -->
+      <div class="subject"><h4>Economics</h4>
+        <a href="https://myschool.ng/jamb/economics" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/economics" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Government</h4>
+        <a href="https://myschool.ng/jamb/government" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/government" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Geography</h4>
+        <a href="https://myschool.ng/jamb/geography" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/geography" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Literature in English</h4>
+        <a href="https://myschool.ng/jamb/literature-in-english" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/literature-in-english" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <!-- Religious & Language -->
+      <div class="subject"><h4>Islamic Studies</h4>
+        <a href="https://myschool.ng/jamb/islamic-religious-knowledge" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/islamic-religious-knowledge" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Christian Religious Studies</h4>
+        <a href="https://myschool.ng/jamb/christian-religious-knowledge" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/christian-religious-knowledge" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Arabic</h4>
+        <a href="https://myschool.ng/jamb/arabic" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/arabic" target="_blank">📄 Past Questions</a>
+      </div>
+
+      <div class="subject"><h4>Hausa</h4>
+        <a href="https://myschool.ng/jamb/hausa" target="_blank">📘 Study Free</a>
+        <a href="https://myschool.ng/jamb/past-questions/hausa" target="_blank">📄 Past Questions</a>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="card" id="loginBox">
-<h2>Student Login</h2>
-<input id="studentName" placeholder="Enter your full name">
-<button onclick="login()">Enter Portal</button>
+<section id="cbt">
+  <div class="card">
+    <h2 id="cbt-en">Online CBT Practice (Real & Free)</h2>
+<h2 id="cbt-ha" style="display:none">Gwajin CBT na JAMB (Na Gaskiya & Kyauta)</h2>
+    <p>NUJES does not use fake CBT systems. All CBT practice links below are <strong>real, trusted, and widely used by JAMB candidates</strong> across Nigeria.</p>
+    <br>
+
+    <h3>✅ MySchool JAMB CBT (Recommended)</h3>
+    <p>This is one of the most popular and reliable CBT platforms in Nigeria.</p>
+    <ul>
+      <li><a href="https://myschool.ng/classroom/jamb" target="_blank">➡ Start JAMB CBT on MySchool</a></li>
+    </ul>
+
+    <br>
+    <h3>✅ Other Trusted CBT Platforms</h3>
+    <ul>
+      <li><a href="https://jambcbtpractice.com" target="_blank">JAMB CBT Practice</a></li>
+      <li><a href="https://pass.ng/exams/jamb" target="_blank">Pass.ng JAMB CBT</a></li>
+    </ul>
+
+    <br>
+    <p><strong>Note:</strong> These platforms allow students to practice real JAMB-style questions with timers, score analysis, and corrections.</p>
+  </div>
 </section>
 
-<section class="card" id="dashboard" style="display:none;">
-<h2 id="welcome"></h2>
-<p>Select a subject to study online, download PDFs, or practice CBT.</p>
-
-<h3>🧪 Science Subjects</h3>
-<div class="grid">
-<div class="subject">
-<h4>Mathematics</h4>
-<a href="https://myschool.ng/classroom/mathematics" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/mathematics" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Mathematics')">CBT</button>
-</div>
-
-<div class="subject">
-<h4>Physics</h4>
-<a href="https://myschool.ng/classroom/physics" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/physics" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Physics')">CBT</button>
-</div>
-
-<div class="subject">
-<h4>Chemistry</h4>
-<a href="https://myschool.ng/classroom/chemistry" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/chemistry" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Chemistry')">CBT</button>
-</div>
-
-<div class="subject">
-<h4>Biology</h4>
-<a href="https://myschool.ng/classroom/biology" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/biology" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Biology')">CBT</button>
-</div>
-</div>
-
-<h3>🌍 Social Science</h3>
-<div class="grid">
-<div class="subject">
-<h4>Economics</h4>
-<a href="https://myschool.ng/classroom/economics" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/economics" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Economics')">CBT</button>
-</div>
-
-<div class="subject">
-<h4>Government</h4>
-<a href="https://myschool.ng/classroom/government" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/government" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Government')">CBT</button>
-</div>
-</div>
-
-<h3>🎨 Arts</h3>
-<div class="grid">
-<div class="subject">
-<h4>Literature</h4>
-<a href="https://myschool.ng/classroom/literature-in-english" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/literature-in-english" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Literature')">CBT</button>
-</div>
-
-<div class="subject">
-<h4>Hausa</h4>
-<a href="https://myschool.ng/classroom/hausa" target="_blank">Study Online</a>
-<a href="https://pass.ng/jamb/hausa" target="_blank">PDF & Past Questions</a>
-<button onclick="startCBT('Hausa')">CBT</button>
-</div>
-</div>
-
-<button onclick="logout()">Logout</button>
-</section>
-
-<section class="card" id="cbtBox" style="display:none;">
-<h2 id="cbtTitle"></h2>
-<p id="question"></p>
-<div id="options"></div>
+<section id="login">
+  <div class="card login-box">
+    <h2 id="login-en">Student Login (Demo)</h2>
+<h2 id="login-ha" style="display:none">Shigar Dalibi (Gwaji)</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="msg" style="margin-top:10px;color:red"></p>
+  </div>
 </section>
 
 <footer>
-<strong>President:</strong> Ahmad Ibrahim Maidala (NUJES President)<br><br>
-<strong>Produced & Developed by:</strong><br>
-Eng. Ibrahim Usman Nananu (Mr-Manga)
+  <p id="footer-en">© NUJES | National Union of Jama'are Emirate Students</p>
+  <p id="footer-ha" style="display:none">© NUJES | Ƙungiyar Ɗaliban Masarautar Jama'are ta Ƙasa</p>
+  <p>Built with ❤️ by <span>Ibrahim Usman Nananu (Mr-Manga)</span></p>
 </footer>
 
 <script>
-const loginBox=document.getElementById("loginBox");
-const dashboard=document.getElementById("dashboard");
-const welcome=document.getElementById("welcome");
+  const translations = {
+    ha: {
+      aboutTitle: 'Game da NUJES',
+      subjectsTitle: 'Darussan JAMB da Kayan Karatu Kyauta',
+      cbtTitle: 'Gwajin CBT ta Yanar Gizo',
+      loginTitle: 'Shigar Dalibi'
+    },
+    en: {
+      aboutTitle: 'About NUJES',
+      subjectsTitle: 'JAMB Subjects & Free Study Resources',
+      cbtTitle: 'Online CBT Practice',
+      loginTitle: 'Student Login'
+    }
+  };
 
-function login(){
- const name=document.getElementById("studentName").value.trim();
- if(!name) return alert("Enter your name");
- localStorage.setItem("nujesUser",name);
- checkLogin();
-}
-function checkLogin(){
- const u=localStorage.getItem("nujesUser");
- if(u){
-  loginBox.style.display="none";
-  dashboard.style.display="block";
-  welcome.innerText="Welcome, "+u;
- }
-}
-function logout(){
- localStorage.removeItem("nujesUser");
- location.reload();
-}
-checkLogin();
+  function setLang(lang){
+  const en = lang === 'en';
 
-const questions=[
- {q:"2 + 5 = ?", o:["5","6","7","8"], a:2},
- {q:"5 × 4 = ?", o:["10","15","20","25"], a:2}
-];
-let i=0,score=0;
+  document.getElementById('tagline-en').style.display = en ? 'block' : 'none';
+  document.getElementById('tagline-ha').style.display = en ? 'none' : 'block';
 
-function startCBT(sub){
- dashboard.style.display="none";
- document.getElementById("cbtBox").style.display="block";
- document.getElementById("cbtTitle").innerText=sub+" CBT Practice";
- showQ();
+  document.getElementById('subjects-en').style.display = en ? 'block' : 'none';
+  document.getElementById('subjects-ha').style.display = en ? 'none' : 'block';
+
+  document.getElementById('cbt-en').style.display = en ? 'block' : 'none';
+  document.getElementById('cbt-ha').style.display = en ? 'none' : 'block';
+
+  document.getElementById('login-en').style.display = en ? 'block' : 'none';
+  document.getElementById('login-ha').style.display = en ? 'none' : 'block';
+
+  document.getElementById('footer-en').style.display = en ? 'block' : 'none';
+  document.getElementById('footer-ha').style.display = en ? 'none' : 'block';
 }
-function showQ(){
- const q=questions[i];
- document.getElementById("question").innerText=q.q;
- let html="";
- q.o.forEach((op,n)=>{
-  html+=`<button onclick="ans(${n})">${op}</button><br><br>`;
- });
- document.getElementById("options").innerHTML=html;
-}
-function ans(n){
- if(n===questions[i].a) score++;
- i++;
- if(i<questions.length) showQ();
- else document.getElementById("cbtBox").innerHTML=
- `<h2>Completed</h2><p>Score: ${score}/${questions.length}</p>
- <button onclick="location.reload()">Back Home</button>`;
-}
+
+
+  function login(){
+    const u=document.getElementById('username').value;
+    const p=document.getElementById('password').value;
+    if(u==='student' && p==='nujes'){
+      document.getElementById('msg').style.color='green';
+      document.getElementById('msg').innerText='Login successful! (Demo mode)';
+    }else{
+      document.getElementById('msg').innerText='Invalid login. Use: student / nujes';
+    }
+  }
 </script>
 
 </body>
