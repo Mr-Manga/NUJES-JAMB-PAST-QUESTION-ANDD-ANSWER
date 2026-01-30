@@ -15,11 +15,28 @@
     .card {border:1px solid #ccc; border-radius:8px; padding:15px; width:180px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
     .card a {display:block; margin-top:8px; text-decoration:none; color:blue;}
     footer {text-align:center; padding:15px; background:#f5f5f5; margin-top:20px;}
+    svg {margin-bottom:15px;}
   </style>
 </head>
 <body>
 
 <header>
+  <!-- Circular Logo with Text Around -->
+  <svg width="150" height="150" viewBox="0 0 200 200">
+    <defs>
+      <path id="circlePath" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+    </defs>
+    <circle cx="100" cy="100" r="50" fill="#4CAF50"/> <!-- Logo base -->
+    <text font-size="12" fill="#fff">
+      <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
+        NATIONAL UNION OF JAMA'ARE EMIRATE STUDENTS
+      </textPath>
+    </text>
+    <text x="100" y="105" font-size="24" fill="#fff" text-anchor="middle" dominant-baseline="middle">
+      NUJES
+    </text>
+  </svg>
+
   <h1 class="ha">NUJES Tsarin CBT da Tambayoyin JAMB</h1>
   <p class="en">Free academic support for Jama'are Emirate students</p>
   <p class="ha">Tallafin karatu kyauta ga daliban Masarautar Jama'are</p>
